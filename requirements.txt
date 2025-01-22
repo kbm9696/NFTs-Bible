@@ -16,3 +16,5 @@ torch
 g4f
 curl-cffi
 streamlit-wallet-connect
+sqlalchemy
+psycopg2-binary
