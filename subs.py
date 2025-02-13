@@ -26,9 +26,12 @@ class Customer(Base):
 
 # Database connection
 DATABASE_URL = "postgresql://kbm:U3dJbrL87alo4yx511FNhgWH95S79vQy@dpg-cu30knggph6c73blba00-a.oregon-postgres.render.com/apis_1i9f"
-engine = create_engine(DATABASE_URL)
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-Base.metadata.create_all(bind=engine)
+try:
+    engine = create_engine(DATABASE_URL)
+    SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+    Base.metadata.create_all(bind=engine)
+except Exception as e:
+    pass
 
 def insert_customer(data):
     """Insert data into the customers table."""
